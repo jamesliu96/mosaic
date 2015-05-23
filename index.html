@@ -24,6 +24,14 @@
     a:hover, a:visited {
         text-decoration: underline;
     }
+    #tux {
+        margin-top: 10px;
+        height: 300px;
+        width: 300px;
+    }
+    #form {
+        margin-top: 20px;
+    }
     #mosaic {
         margin-top: 30px;
         font-size: 10px;
@@ -37,10 +45,23 @@
 </head>
 <body>
     <img src="tux.png" id="tux"><br>
+    <form id="form"><input type="file" onchange="change(this)"></form><br>
     <button id="mosaic" onclick="mosaic()">MOSAICIFY</button>
     <div id="copying">Copyright &copy; <span id="year">2015</span> <a href="http://jamesliu.info/" target="_blank">James Liu</a></div>
 <script type="text/javascript" src="mosaic.min.js"></script>
 <script type="text/javascript">
+var change = function(e) {
+    if ("undefined" === typeof FileReader) {  
+        alert('FileReader not supported! Abort.');
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = document.getElementById('tux');
+        img.src = this.result;
+    }
+    reader.readAsDataURL(e.files[0]);
+};
 function mosaic() {
     Mosaic('tux');
 }
