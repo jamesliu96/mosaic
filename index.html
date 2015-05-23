@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>Mosaic</title>
+    <meta name="author" content="James Liu">
+    <meta name="description" content="Mosaic by James Liu">
+    <meta name="keywords" content="mosaic,imageprocessing,canvas,html5">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+    <style type="text/css">
+    body {
+        padding: 0;
+        margin: 0;
+        color: #000;
+        text-align: center;
+        font-family: Menlo, Courier, monospace;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    a:hover, a:visited {
+        text-decoration: underline;
+    }
+    #mosaic {
+        margin-top: 30px;
+        font-size: 10px;
+        font-family: Menlo, Courier, monospace;
+    }
+    #copying {
+        margin-top: 40px;
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+    <img src="tux.png" id="tux"><br>
+    <button id="mosaic" onclick="mosaic()">MOSAICIFY</button>
+    <div id="copying">Copyright &copy; <span id="year">2015</span> <a href="http://jamesliu.info/" target="_blank">James Liu</a></div>
+<script type="text/javascript" src="mosaic.min.js"></script>
+<script type="text/javascript">
+function mosaic() {
+    Mosaic('tux');
+}
+document.getElementById('year').innerHTML = new Date().getFullYear();
+</script>
+</body>
+</html>
